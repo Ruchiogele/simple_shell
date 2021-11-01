@@ -174,8 +174,7 @@ Username@your-regular-prompt:~$ man ./man_1_simple_shell
 ```
 Project Done in 15 Day
 
-Read More [Here](https://midinfotn401.medium.com/shell-step-by-step-what-happen-when-you-type-ls-l-in-the-shell-83d655712332)
 ## Authors
-* Ahmed Belhaj [Ruchigele](https://github.com/Ruchigele)
+* Osaruchi Ogele [Ruchigele](https://github.com/Ruchigele)
 * Justin Onyeje [Kayceejay](https://github.com/KayceeJayy)
 
