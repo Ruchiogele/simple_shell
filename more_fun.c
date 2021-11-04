@@ -1,32 +1,29 @@
 #include "shell.h"
-
 /**
- * _strcpy - string copier
- * @dest: pointer
- * @src: pointer
- * Return: pointer
+ * _strcpy - Copie Source To Destination Char
+ * @dest:Destination
+ * @src:Source
+ * Return: Copie Of Char *
  */
-
 char *_strcpy(char *dest, char *src)
 {
-	int i;
+int i;
 
+i = 0;
 	while (src[i])
 	{
 		dest[i] = src[i];
 		i++;
 	}
-	dest[i] = '\0';
-	return (dest);
+dest[i] = '\0';
+return (dest);
 }
-
 /**
- * _strcat - string concatenator
- * @dest: pointer
- * @src: pointer
- * Return: pointer
+ * _strcat - Concat Two String
+ * @dest:First String
+ * @src:Second String
+ * Return:First String + Second String Char *
  */
-
 char *_strcat(char *dest, char *src)
 {
 	char *s = dest;
@@ -45,14 +42,12 @@ char *_strcat(char *dest, char *src)
 	*dest = '\0';
 	return (s);
 }
-
 /**
- * _strchr - char locator
- * @s: pointer
- * @c: char
- * Return: pointer
+ * _strchr - Locate Charactere In String
+ * @s:String Search In
+ * @c:Char To Search For
+ * Return: Pointer To Char*
  */
-
 char *_strchr(char *s, char c)
 {
 
@@ -64,17 +59,16 @@ char *_strchr(char *s, char c)
 			}
 		}	while (*s++);
 
-		return (s);
+return (s);
 }
-
 /**
- * _strncmp - compares strings
- * @s1: pointer
- * @s2: pointer
- * @n: integer
- * Return: Always 0, else 1
+ * _strncmp - Compare Amount (n) Of Characters Of Two Strings.
+ * @s1: A String.
+ * @s2: A String.
+ * @n: Amount Of Characters To Compare.
+ *
+ * Return: 1 If The Strings Don't Match Otherwise 0
  */
-
 int _strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t i;
@@ -90,13 +84,11 @@ int _strncmp(const char *s1, const char *s2, size_t n)
 	}
 	return (0);
 }
-
 /**
- * _strdup - string duplicate
- * @str: pointer
- * Return: duplicate
+ * _strdup - Duplicate A String
+ * @str:String
+ * Return: Duplicate String Failed Null
  */
-
 char *_strdup(char *str)
 {
 	size_t len, i;

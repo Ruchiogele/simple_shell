@@ -2,17 +2,15 @@
 
 /**
  * _strcmp - Compare Two String
- * @s1: string
- * @s2: string
- * Return: 0
+ * @s1:String 1
+ * @s2:String 2
+ * Return: 0 If Identical Otherwise How Much Diffrent
  */
-
 int _strcmp(char *s1, char *s2)
 {
-	int cmp = 0, i, len1, len2;
-
-	len1 = _strlen(s1);
-	len2 = _strlen(s2);
+int cmp = 0, i, len1, len2;
+len1 = _strlen(s1);
+len2 = _strlen(s2);
 
 	if (s1 == NULL || s2 == NULL)
 		return (1);
@@ -30,13 +28,11 @@ int _strcmp(char *s1, char *s2)
 	}
 	return (cmp);
 }
-
 /**
- * _isalpha - checks for alphabet
- * @c: char
- * Return: 1 success, else 0
+ * _isalpha - Check if Alphabtic
+ *@c: Character
+ * Return: 1 If True 0 If Not
  */
-
 int _isalpha(int c)
 {
 if (((c >= 97) && (c <= 122)) || ((c >= 65) && (c <= 90)))
@@ -48,11 +44,10 @@ else
 return (0);
 }
 }
-
 /**
- * _itoa - function that converts int to char
- * @n: int
- * Return: pointer
+ * _itoa - Convert Integer To Char
+ * @n: Int To Convert
+ * Return: Char Pointer
  */
 char *_itoa(unsigned int n)
 {
@@ -75,33 +70,29 @@ char *_itoa(unsigned int n)
 	s[i + 1] = '\0';
 	return (s);
 }
-
 /**
  *  array_rev - Reverse Array
- * @arr: array
- * @len: length
- * Return: Void
+ * @arr:Array To Reverse
+ * @len:Length Of Array
+ * Return: Void(Reverse Array)
  */
-
 void array_rev(char *arr, int len)
 {
 	int i;
-	char c;
+	char tmp;
 
 	for (i = 0; i < (len / 2); i++)
 	{
-		c = arr[i];
+		tmp = arr[i];
 		arr[i] = arr[(len - 1) - i];
-		arr[(len - 1) - i] = c;
+		arr[(len - 1) - i] = tmp;
 	}
 }
-
 /**
- * intlen - integer length
- * @num: int
- * Return: int length
+ * intlen - Determine Length Of Int
+ * @num: Given Int
+ * Return: Length Of Int
  */
-
 int intlen(int num)
 {
 	int len = 0;

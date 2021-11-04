@@ -3,27 +3,27 @@
 /**
  * _putchar - writes the character c to stdout
  * @c: The character to print
+ *
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.
  */
-
 int _putchar(char c)
 {
 	return (write(1, &c, 1));
 }
-
 /**
- * _strncpy - string copy
- * @dest: character
- * @src: character
- * @n: integer
- * Return: character
+ * _strncpy - copie a string
+ * @dest:char
+ *  @src:char
+ * @n:int
+ * Return:char
  */
 
 char *_strncpy(char *dest, char *src, int n)
 {
-	int i;
+int i;
 
+i = 0;
 	while (i < n && *(src + i))
 	{
 	*(dest + i) = *(src + i);
@@ -38,9 +38,9 @@ char *_strncpy(char *dest, char *src, int n)
 }
 
 /**
- * _strlen - string length
- * @s: character
- * Return: integer
+ * _strlen - lenght of string
+ * @s:char
+ * Return:int
  */
 
 int _strlen(char *s)
@@ -51,42 +51,39 @@ int _strlen(char *s)
 		{
 			continue;
 		}
-		return (i);
+return (i);
 }
 
 /**
- * _atoi - integer converter
- * @s: string
- * Return: integer
+ * _atoi - convert to a int
+ * @s:string
+ * Return:int
  */
-
 int _atoi(char *s)
 {
-int i, d, n, a;
+int i, j, n, x;
 
 	i = n = 0;
-	a = 1;
+	x = 1;
 	while ((s[i] < '0' || s[i] > '9') && (s[i] != '\0'))
 	{
 		if (s[i] == '-')
-			a *= -1;
+			x *= -1;
 		i++;
 	}
-	d = i;
-	while ((s[d] >= '0') && (s[d] <= '9'))
+	j = i;
+	while ((s[j] >= '0') && (s[j] <= '9'))
 	{
-		n = (n * 10) + a * ((s[d]) - '0');
-		d++;
+		n = (n * 10) + x * ((s[j]) - '0');
+		j++;
 	}
 	return (n);
 }
-
 /**
  * _puts - print a string
- * @str: character pointer
- * return: void
+ * @str:pointer char
+ * return:void
  */
-
 void _puts(char *str)
 {
 	int i;
