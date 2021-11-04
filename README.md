@@ -166,7 +166,7 @@ List of allowed functions and system calls
  * _realloc
  * _getenv
  * _getline
- * _strtok
+ * str_tok
 
 For More Info About It Check The Man Page by
 ```
