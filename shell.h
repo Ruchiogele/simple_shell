@@ -1,17 +1,11 @@
 #ifndef _SHELL_H_
 #define _SHELL_H_
 
-/**###### environ var ######*/
-
 extern char **environ;
-
-/**##### MACROS ######*/
 
 #define BUFSIZE 1024
 #define DELIM " \t\r\n\a"
-#define PRINTER(c) (write(STDOUT_FILENO, c, _strlen(c)))
-
-/**###### LIBS USED ######*/
+#define DISPLAY(c) (write(STDOUT_FILENO, c, _strlen(c)))
 
 #include <stdio.h>
 #include <unistd.h>
@@ -25,88 +19,85 @@ extern char **environ;
 #include <errno.h>
 #include <linux/limits.h>
 
+/** For Memory */
 
-
-
-
-/**###### STRING FUNCTION ######*/
-
-char *_strtok(char *str, const char *tok);
-unsigned int check_delim(char c, const char *str);
-char *_strncpy(char *dest, char *src, int n);
-int _strlen(char *s);
-int _putchar(char c);
-int _atoi(char *s);
-void _puts(char *str);
-int _strcmp(char *s1, char *s2);
-int _isalpha(int c);
-void array_rev(char *arr, int len);
-int intlen(int num);
-char *_itoa(unsigned int n);
-char *_strcat(char *dest, char *src);
-char *_strcpy(char *dest, char *src);
-char *_strchr(char *s, char c);
-int _strncmp(const char *s1, const char *s2, size_t n);
-char *_strdup(char *str);
-
-/**###### MEMORIE  MANGMENT ####*/
-
-void free_env(char **env);
-void *fill_an_array(void *a, int el, unsigned int len);
 char *_memcpy(char *dest, char *src, unsigned int n);
 void *_calloc(unsigned int size);
+void free_env(char **env);
+void *array_bytes(void *x, int d, unsigned int len);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 void free_all(char **input, char *line);
 
-/**###### INPUT Function ######*/
+/** Handle Command-line Arguments */
 
-void prompt(void);
-void signal_to_handel(int sig);
-char *_getline(void);
+int bui_hnd(char **cmd, int er);
+void cmd_reader(char *filename, char **argv);
+int Pa_th(char **cmd);
+char *get_env_name(char *name);
+char **cmd_sort(char *input);
+int cmd_exe(char **tokens, char *line, int count, char **argv);
+void fil_exec(char *line, int counter, FILE *fd, char **argv);
+char *cmd_retrv(char *token, char *value);
+int bui_chk(char **cmd);
+void env_var_arr(char **envi);
+void shell_exit(char **cmd, char *line, FILE *fd);
 
-/** ###### Command parser and extractor ###*/
+/** Functions For Strings */
 
-int path_cmd(char **line);
-char *_getenv(char *name);
-char **parse_cmd(char *cmd);
-int handle_builtin(char **cmd, int er);
-void read_file(char *filename, char **argv);
-char *build(char *token, char *value);
-int check_builtin(char **cmd);
-void creat_envi(char **envi);
-int check_cmd(char **tokens, char *line, int count, char **argv);
-void treat_file(char *line, int counter, FILE *fd, char **argv);
-void exit_bul_for_file(char **cmd, char *line, FILE *fd);
-
-/** ####BUL FUNC #####*/
-
-void hashtag_handle(char *buff);
-int history(char *input);
-int history_dis(char **cmd, int er);
-int dis_env(char **cmd, int er);
-int change_dir(char **cmd, int er);
-int display_help(char **cmd, int er);
-int echo_bul(char **cmd, int er);
-void  exit_bul(char **cmd, char *input, char **argv, int c);
-int print_echo(char **cmd);
-
-/** ####error handle and Printer ####*/
-void print_number(unsigned int n);
-void print_number_in(int n);
-void print_error(char *line, int c, char **argv);
-void _prerror(char **argv, int c, char **cmd);
-
+char *_strchr(char *s, char c);
+int _strncmp(const char *s1, const char *s2, size_t n);
+char *_strdup(char *str);
+int _strlen(char *s);
+int _putchar(char c);
+char *str_tok(char *str, const char *tok);
+unsigned int de_lim(char c, const char *str);
+char *_strncpy(char *dest, char *src, int n);
+int _atoi(char *s);
+void array_rev(char *arr, int len);
+int intlen(int num);
+void _puts(char *str);
+int _strcmp(char *s1, char *s2);
+int _isalpha(int c);
+char *_itoa(unsigned int n);
+char *_strcat(char *dest, char *src);
+char *_strcpy(char *dest, char *src);
 
 /**
- * struct bulltin - contain bultin to handle and function to excute
- * @command:pointer to char
- * @fun:fun to excute when bultin true
+ * struct built_in - declaring builtin struct
+ * @command: pointer to char
+ * @fun: function
  */
 
-typedef struct  bulltin
+typedef struct  built_in
 {
-	char *command;
-	int (*fun)(char **line, int er);
-} bul_t;
+    char *command;
+    int (*fun)(char **line, int er);
+} bui_lt;
+
+/** Handle Input */
+
+void sgn_hnd(int sgn);
+char *read_input(void);
+void prompt(void);
+
+/** Handle builtin functions */
+
+int ch_dir(char **cmd, int er);
+int help_dis(char **cmd, int er);
+void rem_else_hash(char *buff);
+int echo_bul(char **cmd, int er);
+int history(char *input);
+int his_display(char **cmd, int er);
+int dis_env(char **cmd, int er);
+void bui_ex(char **cmd, char *input, char **argv, int c);
+int pr_echo(char **cmd);
+
+/** Handle and Print Errors */
+
+void pr_num(unsigned int n);
+void pr_num_in(int n);
+void dis_err(char *line, int c, char **argv);
+void err_pr(char **argv, int c, char **cmd);
+void print_error(char *input, int counter, char **argv);
 
 #endif
