@@ -72,8 +72,8 @@ char *_strcpy(char *dest, char *src);
 
 typedef struct  built_in
 {
-    char *command;
-    int (*fun)(char **line, int er);
+       	char *command;
+	int (*fun)(char **line, int er);
 } bui_lt;
 
 /** Handle Input */
