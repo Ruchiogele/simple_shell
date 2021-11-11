@@ -72,12 +72,11 @@ char *_strcpy(char *dest, char *src);
 
 typedef struct  built_in
 {
-       	char *command;
+	char *command;
 	int (*fun)(char **line, int er);
 } bui_lt;
 
 /** Handle Input */
-
 void sgn_hnd(int sgn);
 char *read_input(void);
 void prompt(void);
