@@ -7,11 +7,10 @@
 [command] [options] [FILE]
 .SH COPYRIGHT
 .B hsh 
-is Copyright (C) Ahmed Belhaj  and licensed under the MIT license.
+is Copyright (C) Ruchi Ogele and Justin Onyeje  and licensed under the MIT license.
 .SH DESCRIPTION
 .B hsh 
-(Simple Shell) is an end of semester project for students at Holberton School where we expore, 
-understand and build a working functional simple shell program.
+(Simple Shell) is a project in Alx Software Engineering Programme.The aim was to understand and build a working functional simple shell program.
 .B Overview
 
 The simple shell is a simplified iteration of a command line interpreter, similar to 
@@ -98,6 +97,7 @@ are handled automatically by
 No Known bug , please 
 Report 
 .B hsh
-bugs to https://github.com/Theemiss/simple_shell/issues
+bugs to https://github.com/ruchiogele/simple_shell/issues
 .SH AUTHOR
-Ruchi Ogele  
+Ruchi Ogele
+Justin Onyeje
